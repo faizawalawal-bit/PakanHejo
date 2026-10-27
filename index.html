@@ -4,31 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pakan Héjo | Potensi Lokal, Dampak Berkelanjutan</title>
-    <!-- Menggunakan font sans-serif modern yang bersih -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <meta name="description" content="Pakan Héjo memproduksi pelet ikan bernutrisi dari inovasi eceng gondok dan ampas tahu. Solusi pakan ramah lingkungan dari Cililin, Jawa Barat.">
+    <!-- Font modern -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* --- Variabel Warna Sesuai Tema Logo --- */
+        /* --- Tema Asri & Aesthetic --- */
         :root {
-            --bg-cream: #f4f1eb;
-            --dark-green: #0a4721;
-            --light-green: #5a9e2f;
-            --water-blue: #2d82b5;
-            --text-dark: #2d2d2d;
-            --text-light: #555555;
-            --glass-bg: rgba(255, 255, 255, 0.65);
-            --glass-border: rgba(255, 255, 255, 0.4);
+            --bg-light: #eef5ee; /* Putih kehijauan segar */
+            --dark-green: #1b4332; /* Hijau hutan gelap */
+            --medium-green: #40916c; /* Hijau daun */
+            --light-green: #74c69d; /* Hijau muda cerah */
+            --water-blue: #2d82b5; 
+            --text-dark: #1a1a1a;
+            --text-light: #4a4a4a;
+            --glass-bg: rgba(255, 255, 255, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.5);
         }
 
         html {
-            scroll-behavior: smooth; /* Efek scroll yang smooth */
+            scroll-behavior: smooth;
         }
 
         body {
             margin: 0;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background-color: var(--bg-cream);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-light);
+            /* Latar belakang asri dengan gradien halus */
+            background-image: linear-gradient(135deg, #eef5ee 0%, #d8ead8 100%);
             color: var(--text-dark);
-            line-height: 1.6;
+            line-height: 1.7;
         }
 
         /* --- Navigasi Glassmorphism --- */
@@ -36,9 +40,9 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: var(--glass-bg);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            background: rgba(238, 245, 238, 0.85);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
             border-bottom: 1px solid var(--glass-border);
             z-index: 1000;
             display: flex;
@@ -46,229 +50,325 @@
             align-items: center;
             padding: 15px 5%;
             box-sizing: border-box;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
         }
 
-        .logo {
+        .nav-logo {
             font-weight: 700;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             color: var(--dark-green);
             text-decoration: none;
-            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .nav-links a {
-            margin-left: 20px;
+            margin-left: 25px;
             text-decoration: none;
-            color: var(--text-dark);
-            font-size: 0.9rem;
+            color: var(--dark-green);
+            font-size: 0.95rem;
             font-weight: 600;
-            transition: color 0.3s;
+            transition: all 0.3s ease;
         }
 
         .nav-links a:hover {
-            color: var(--light-green);
+            color: var(--medium-green);
         }
 
         /* --- Hero Section --- */
         header {
-            padding: 140px 5% 80px;
+            padding: 160px 5% 100px;
             text-align: center;
-            background: linear-gradient(135deg, rgba(90, 158, 47, 0.1) 0%, rgba(45, 130, 181, 0.1) 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .hero-logo {
+            width: 150px;
+            height: auto;
+            margin-bottom: 20px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(27, 67, 50, 0.15);
+            /* Jika logo.jpg belum ada, akan tetap tampil rapi */
+            background-color: white; 
         }
 
         h1 {
-            font-size: 3rem;
+            font-size: 3.5rem;
             color: var(--dark-green);
             margin-bottom: 10px;
+            margin-top: 0;
             letter-spacing: -1px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.05);
         }
 
         .tagline {
-            font-size: 1.2rem;
-            color: var(--water-blue);
+            font-size: 1.3rem;
+            color: var(--medium-green);
             font-weight: 400;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
         }
 
+        /* --- Tombol Berfungsi --- */
         .btn {
             display: inline-block;
             background-color: var(--dark-green);
             color: white;
-            padding: 12px 28px;
-            border-radius: 30px;
+            padding: 14px 32px;
+            border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
-            box-shadow: 0 4px 15px rgba(10, 71, 33, 0.2);
+            box-shadow: 0 8px 20px rgba(27, 67, 50, 0.25);
             transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
         }
 
         .btn:hover {
-            background-color: var(--light-green);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(90, 158, 47, 0.3);
+            background-color: var(--medium-green);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(27, 67, 50, 0.35);
         }
 
-        /* --- Layout & Card (Gaya Minimalis) --- */
+        .btn-outline {
+            background-color: transparent;
+            color: var(--dark-green);
+            border: 2px solid var(--dark-green);
+            box-shadow: none;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--dark-green);
+            color: white;
+        }
+
+        /* --- Layout & Card Glassmorphism --- */
         section {
             padding: 80px 5%;
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
         }
 
         h2 {
             text-align: center;
-            font-size: 2rem;
+            font-size: 2.2rem;
             color: var(--dark-green);
-            margin-bottom: 40px;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        /* Garis estetis di bawah judul */
+        h2::after {
+            content: '';
+            width: 60px;
+            height: 4px;
+            background: var(--light-green);
+            display: block;
+            margin: 10px auto 0;
+            border-radius: 2px;
         }
 
         .grid-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
+            align-items: center;
         }
 
         .card {
-            background: rgba(255, 255, 255, 0.5);
+            background: var(--glass-bg);
             border: 1px solid var(--glass-border);
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
-            backdrop-filter: blur(8px);
-            transition: transform 0.3s ease;
+            border-radius: 24px;
+            padding: 40px 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.04);
+            backdrop-filter: blur(12px);
+            transition: transform 0.4s ease;
+            height: 100%;
+            box-sizing: border-box;
         }
 
         .card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
         }
 
         .card h3 {
-            color: var(--water-blue);
+            color: var(--dark-green);
             margin-top: 0;
-            font-size: 1.3rem;
+            font-size: 1.4rem;
         }
 
-        .card p {
-            color: var(--text-light);
+        .image-rounded {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 24px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+        }
+
+        /* --- Spesifik List Makna Logo --- */
+        .logo-meaning {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .logo-meaning li {
+            margin-bottom: 20px;
+            background: rgba(255,255,255,0.5);
+            padding: 15px 20px;
+            border-radius: 15px;
+            border-left: 5px solid var(--medium-green);
+        }
+
+        .logo-meaning h4 {
+            margin: 0 0 5px 0;
+            color: var(--dark-green);
+        }
+
+        .logo-meaning p {
+            margin: 0;
             font-size: 0.95rem;
-        }
-
-        /* --- Spesifik Tempat Produksi --- */
-        .location-box {
-            text-align: center;
-            background: white;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            color: var(--text-light);
         }
 
         /* --- Footer --- */
         footer {
             text-align: center;
-            padding: 40px 5%;
+            padding: 50px 5%;
             background: var(--dark-green);
             color: white;
+            border-top-left-radius: 40px;
+            border-top-right-radius: 40px;
+            margin-top: 50px;
         }
 
-        footer p {
-            margin: 0;
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-
-        /* --- Responsive Design (Untuk Layar HP) --- */
+        /* --- Responsive Design --- */
         @media (max-width: 768px) {
-            h1 { font-size: 2.2rem; }
-            .nav-links { display: none; /* Disembunyikan di mobile agar rapi */ }
-            header { padding-top: 100px; }
+            h1 { font-size: 2.5rem; }
+            .nav-links { display: none; }
+            header { padding-top: 130px; }
+            .grid-container { grid-template-columns: 1fr; }
         }
     </style>
 </head>
-<body>
+<body id="beranda">
 
-    <!-- Navigasi -->
+    <!-- Navigasi (Tombol Anchor Berfungsi) -->
     <nav>
-        <a href="#" class="logo">PAKAN HÉJO</a>
+        <a href="#beranda" class="nav-logo">🌱 PAKAN HÉJO</a>
         <div class="nav-links">
             <a href="#latar-belakang">Latar Belakang</a>
-            <a href="#produk">Produk & Manfaat</a>
-            <a href="#keunggulan">Keunggulan</a>
-            <a href="#produksi">Lokasi</a>
+            <a href="#makna-logo">Identitas</a>
+            <a href="#produk">Keunggulan</a>
+            <a href="#beli">Pemesanan</a>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <header>
+        <!-- Pastikan file logo di GitHub bernama 'logo.jpg' atau 'logo.png' -->
+        <img src="logo.jpg" alt="Logo Pakan Hejo" class="hero-logo" onerror="this.src='https://via.placeholder.com/150?text=Logo+Pakan+Hejo'">
         <h1>PAKAN HÉJO</h1>
         <p class="tagline">Potensi lokal, dampak berkelanjutan.</p>
-        <a href="#beli" class="btn">Pesan Sekarang</a>
+        <div style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: center;">
+            <a href="#beli" class="btn">Pesan Sekarang</a>
+            <a href="#latar-belakang" class="btn btn-outline">Pelajari Lebih Lanjut</a>
+        </div>
     </header>
 
-    <!-- Latar Belakang -->
+    <!-- Latar Belakang & Foto Eceng Gondok -->
     <section id="latar-belakang">
-        <h2>Latar Belakang</h2>
-        <div class="card" style="text-align: center;">
-            <p>Eceng gondok seringkali dianggap sebagai gulma perairan yang mengganggu ekosistem, sementara ampas tahu menjadi limbah sisa produksi yang menimbulkan bau tak sedap jika tidak dikelola. <b>Pakan Héjo</b> hadir sebagai solusi inovatif yang merangkul kedua potensi ini. Kami menyulap tantangan lingkungan menjadi produk bernilai tinggi yang mendukung kemajuan budidaya perikanan dengan tetap menjaga kelestarian alam.</p>
+        <h2>Harmoni Alam & Inovasi</h2>
+        <div class="grid-container">
+            <div>
+                <!-- Menggunakan gambar eceng gondok estetik dari Unsplash sebagai ilustrasi web -->
+                <img src="https://images.unsplash.com/photo-1615963244664-8284dd8992ba?q=80&w=800&auto=format&fit=crop" alt="Tanaman Air Asri" class="image-rounded">
+            </div>
+            <div class="card" style="display: flex; flex-direction: column; justify-content: center;">
+                <h3>Merangkul Potensi Lokal</h3>
+                <p>Eceng gondok seringkali dianggap sebagai gulma perairan yang mengganggu, sementara ampas tahu menjadi limbah yang menimbulkan polusi bau. <b>Pakan Héjo</b> merangkul kedua hal ini.</p>
+                <p>Kami menyulap tantangan lingkungan di Jawa Barat menjadi produk bernilai tinggi. Pendekatan zero-waste kami mendukung kemajuan budidaya perikanan dengan tetap menjaga kelestarian perairan.</p>
+            </div>
         </div>
     </section>
 
-    <!-- Informasi Produk & Manfaat -->
+    <!-- Makna Logo Section -->
+    <section id="makna-logo">
+        <h2>Makna Identitas Kami</h2>
+        <div class="grid-container">
+            <div class="card">
+                <ul class="logo-meaning">
+                    <li>
+                        <h4>🌿 Daun & Bunga Eceng Gondok</h4>
+                        <p>Mengubah gulma yang tak berguna menjadi sumber daya pakan bernilai tinggi.</p>
+                    </li>
+                    <li>
+                        <h4>🐟 Siluet Ikan & Arus Air</h4>
+                        <p>Target nutrisi perikanan dan komitmen menjaga habitat perairan yang bersih.</p>
+                    </li>
+                    <li>
+                        <h4>🟤 Butiran Cokelat</h4>
+                        <p>Simbol produk akhir berupa pelet ikan padat nutrisi dari bahan alami.</p>
+                    </li>
+                    <li>
+                        <h4>✨ Inisial 'H' (Héjo)</h4>
+                        <p>Gabungan elemen membentuk inisial yang mempertegas visi berkelanjutan kami.</p>
+                    </li>
+                </ul>
+            </div>
+            <div style="text-align: center;">
+                <!-- Menampilkan logo lagi dengan ukuran lebih besar -->
+                <img src="logo.jpg" alt="Logo Pakan Hejo Detail" style="width: 100%; max-width: 350px; border-radius: 30px; box-shadow: 0 20px 40px rgba(0,0,0,0.08);" onerror="this.src='https://via.placeholder.com/350?text=Logo+Detail'">
+            </div>
+        </div>
+    </section>
+
+    <!-- Keunggulan & Produk -->
     <section id="produk">
-        <h2>Produk & Manfaat</h2>
+        <h2>Kenapa Pakan Héjo?</h2>
         <div class="grid-container">
             <div class="card">
-                <h3>Nutrisi Optimal</h3>
-                <p>Pelet Pakan Héjo diformulasikan dari eceng gondok yang kaya serat dan ampas tahu yang tinggi protein nabati. Membantu mempercepat pertumbuhan ikan secara sehat dan alami.</p>
+                <h3>💧 Menjaga Kualitas Air</h3>
+                <p>Dicetak dengan kepadatan presisi (water stability baik) sehingga tidak mudah hancur, meminimalisir endapan amonia di kolam Anda.</p>
             </div>
             <div class="card">
-                <h3>Menjaga Kualitas Air</h3>
-                <p>Dicetak dengan kepadatan yang presisi sehingga tidak mudah hancur di dalam air. Meminimalisir endapan amonia yang berisiko mencemari kolam budidaya.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Keunggulan -->
-    <section id="keunggulan">
-        <h2>Keunggulan Kami</h2>
-        <div class="grid-container">
-            <div class="card">
-                <h3>🌱 Ramah Lingkungan</h3>
-                <p>Proses produksi mengedepankan prinsip minim limbah (*zero-waste*) dan secara langsung mendukung pengurangan gulma perairan.</p>
+                <h3>📈 Nutrisi Optimal</h3>
+                <p>Kombinasi eceng gondok yang kaya serat dan ampas tahu yang tinggi protein nabati, mempercepat pertumbuhan ikan secara sehat.</p>
             </div>
             <div class="card">
                 <h3>💰 Harga Terjangkau</h3>
-                <p>Memanfaatkan bahan baku alternatif lokal sehingga mampu menekan biaya produksi dan memberikan penawaran harga terbaik bagi para peternak ikan.</p>
-            </div>
-            <div class="card">
-                <h3>🤝 Pemberdayaan Lokal</h3>
-                <p>Hadir untuk memajukan sirkulasi ekonomi wilayah sekitar dan merangkul praktik usaha perikanan yang inklusif serta berkelanjutan.</p>
+                <p>Memanfaatkan bahan baku alternatif lokal dari Cililin, menekan biaya produksi demi harga terbaik bagi peternak ikan.</p>
             </div>
         </div>
     </section>
 
-    <!-- Tempat Produksi -->
-    <section id="produksi">
-        <h2>Tempat Produksi</h2>
-        <div class="location-box">
-            <h3 style="color: var(--dark-green); margin-top: 0;">Diproduksi dengan bangga di:</h3>
-            <p style="font-size: 1.4rem; font-weight: 700; color: var(--text-dark);">Cililin, Jawa Barat, Indonesia</p>
-            <p style="color: var(--text-light); max-width: 600px; margin: 15px auto 0;">Setiap butir pelet diproses melalui standar pengolahan yang teliti—mulai dari pencucian, penepungan, hingga pencetakan di fasilitas produksi kami—untuk memastikan kualitas pakan terbaik sampai ke kolam Anda.</p>
+    <!-- Pemesanan & Kontak -->
+    <section id="beli">
+        <div class="card" style="text-align: center; max-width: 700px; margin: 0 auto; background: rgba(255,255,255,0.8);">
+            <h2 style="margin-bottom: 20px; font-size: 2rem;">Mulai Beralih ke Pakan Héjo</h2>
+            <p style="margin-bottom: 30px; color: var(--text-light);">Diproduksi dengan bangga di Cililin, Jawa Barat. Siap memenuhi kebutuhan eceran maupun partai besar.</p>
+            
+            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                <!-- Ganti nomor WhatsApp di bawah ini -->
+                <a href="https://wa.me/6281234567890" target="_blank" class="btn" style="background-color: #25D366; display: flex; align-items: center; gap: 10px;">
+                    🛒 Pesan via WhatsApp
+                </a>
+                
+                <!-- Tombol interaktif menggunakan JavaScript sederhana karena belum ada link -->
+                <button onclick="alert('Toko Online di Shopee/Tokopedia sedang dalam tahap persiapan. Silakan pesan melalui WhatsApp untuk saat ini!')" class="btn" style="background-color: var(--water-blue);">
+                    🛍️ Toko Online (Segera)
+                </button>
+            </div>
         </div>
-    </section>
-
-    <!-- Link Pembelian (Call to Action) -->
-    <section id="beli" style="text-align: center; padding-bottom: 120px;">
-        <h2>Dapatkan Pakan Héjo Sekarang</h2>
-        <p style="margin-bottom: 30px; color: var(--text-light);">Tersedia untuk pesanan eceran maupun partai besar untuk kebutuhan budidaya Anda.</p>
-        <!-- Ganti '628xxxxxxxxxx' dengan nomor WhatsApp bisnis Anda -->
-        <a href="https://wa.me/628xxxxxxxxxx" target="_blank" class="btn" style="background-color: #25D366; margin-bottom: 10px;">Beli via WhatsApp</a>
-        <!-- Ganti tanda pagar '#' dengan link toko online jika sudah ada -->
-        <a href="#" class="btn" style="background-color: var(--water-blue); margin-left: 10px; margin-bottom: 10px;">Toko Online (Segera)</a>
     </section>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2026 Pakan Héjo. Hak Cipta Dilindungi.</p>
+        <h3 style="margin-top: 0;">PAKAN HÉJO</h3>
+        <p>Potensi Lokal, Dampak Berkelanjutan.</p>
+        <p style="opacity: 0.6; font-size: 0.85rem; margin-top: 20px;">&copy; 2026 Pakan Héjo - Aruna Kriya. Hak Cipta Dilindungi.</p>
     </footer>
 
 </body>

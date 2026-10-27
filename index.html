@@ -1,375 +1,241 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pakan Héjo | Potensi Lokal, Dampak Berkelanjutan</title>
-    <meta name="description" content="Pakan Héjo memproduksi pelet ikan bernutrisi dari inovasi eceng gondok dan ampas tahu. Solusi pakan ramah lingkungan dari Cililin, Jawa Barat.">
-    <!-- Font modern -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <style>
-        /* --- Tema Asri & Aesthetic --- */
-        :root {
-            --bg-light: #eef5ee; /* Putih kehijauan segar */
-            --dark-green: #1b4332; /* Hijau hutan gelap */
-            --medium-green: #40916c; /* Hijau daun */
-            --light-green: #74c69d; /* Hijau muda cerah */
-            --water-blue: #2d82b5; 
-            --text-dark: #1a1a1a;
-            --text-light: #4a4a4a;
-            --glass-bg: rgba(255, 255, 255, 0.7);
-            --glass-border: rgba(255, 255, 255, 0.5);
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            margin: 0;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: var(--bg-light);
-            /* Latar belakang asri dengan gradien halus */
-            background-image: linear-gradient(135deg, #eef5ee 0%, #d8ead8 100%);
-            color: var(--text-dark);
-            line-height: 1.7;
-        }
-
-        /* --- Navigasi Glassmorphism --- */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(238, 245, 238, 0.85);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border-bottom: 1px solid var(--glass-border);
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 5%;
-            box-sizing: border-box;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
-        }
-
-        .nav-logo {
-            font-weight: 700;
-            font-size: 1.3rem;
-            color: var(--dark-green);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .nav-links a {
-            margin-left: 25px;
-            text-decoration: none;
-            color: var(--dark-green);
-            font-size: 0.95rem;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--medium-green);
-        }
-
-        /* --- Hero Section --- */
-        header {
-            padding: 160px 5% 100px;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .hero-logo {
-            width: 150px;
-            height: auto;
-            margin-bottom: 20px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(27, 67, 50, 0.15);
-            /* Jika logo.jpg belum ada, akan tetap tampil rapi */
-            background-color: white; 
-        }
-
-        h1 {
-            font-size: 3.5rem;
-            color: var(--dark-green);
-            margin-bottom: 10px;
-            margin-top: 0;
-            letter-spacing: -1px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.05);
-        }
-
-        .tagline {
-            font-size: 1.3rem;
-            color: var(--medium-green);
-            font-weight: 400;
-            margin-bottom: 40px;
-        }
-
-        /* --- Tombol Berfungsi --- */
-        .btn {
-            display: inline-block;
-            background-color: var(--dark-green);
-            color: white;
-            padding: 14px 32px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            box-shadow: 0 8px 20px rgba(27, 67, 50, 0.25);
-            transition: all 0.3s ease;
-            cursor: pointer;
-            border: none;
-            font-size: 1rem;
-        }
-
-        .btn:hover {
-            background-color: var(--medium-green);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(27, 67, 50, 0.35);
-        }
-
-        .btn-outline {
-            background-color: transparent;
-            color: var(--dark-green);
-            border: 2px solid var(--dark-green);
-            box-shadow: none;
-        }
-
-        .btn-outline:hover {
-            background-color: var(--dark-green);
-            color: white;
-        }
-
-        /* --- Layout & Card Glassmorphism --- */
-        section {
-            padding: 80px 5%;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        h2 {
-            text-align: center;
-            font-size: 2.2rem;
-            color: var(--dark-green);
-            margin-bottom: 50px;
-            position: relative;
-        }
-
-        /* Garis estetis di bawah judul */
-        h2::after {
-            content: '';
-            width: 60px;
-            height: 4px;
-            background: var(--light-green);
-            display: block;
-            margin: 10px auto 0;
-            border-radius: 2px;
-        }
-
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            align-items: center;
-        }
-
-        .card {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: 24px;
-            padding: 40px 30px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.04);
-            backdrop-filter: blur(12px);
-            transition: transform 0.4s ease;
-            height: 100%;
-            box-sizing: border-box;
-        }
-
-        .card:hover {
-            transform: translateY(-8px);
-        }
-
-        .card h3 {
-            color: var(--dark-green);
-            margin-top: 0;
-            font-size: 1.4rem;
-        }
-
-        .image-rounded {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            border-radius: 24px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
-        }
-
-        /* --- Spesifik List Makna Logo --- */
-        .logo-meaning {
-            list-style: none;
-            padding: 0;
-        }
-        
-        .logo-meaning li {
-            margin-bottom: 20px;
-            background: rgba(255,255,255,0.5);
-            padding: 15px 20px;
-            border-radius: 15px;
-            border-left: 5px solid var(--medium-green);
-        }
-
-        .logo-meaning h4 {
-            margin: 0 0 5px 0;
-            color: var(--dark-green);
-        }
-
-        .logo-meaning p {
-            margin: 0;
-            font-size: 0.95rem;
-            color: var(--text-light);
-        }
-
-        /* --- Footer --- */
-        footer {
-            text-align: center;
-            padding: 50px 5%;
-            background: var(--dark-green);
-            color: white;
-            border-top-left-radius: 40px;
-            border-top-right-radius: 40px;
-            margin-top: 50px;
-        }
-
-        /* --- Responsive Design --- */
-        @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
-            .nav-links { display: none; }
-            header { padding-top: 130px; }
-            .grid-container { grid-template-columns: 1fr; }
-        }
-    </style>
-</head>
-<body id="beranda">
-
-    <!-- Navigasi (Tombol Anchor Berfungsi) -->
-    <nav>
-        <a href="#beranda" class="nav-logo">🌱 PAKAN HÉJO</a>
-        <div class="nav-links">
-            <a href="#latar-belakang">Latar Belakang</a>
-            <a href="#makna-logo">Identitas</a>
-            <a href="#produk">Keunggulan</a>
-            <a href="#beli">Pemesanan</a>
-        </div>
+<!doctype html>
+<html lang="id"><head><script>window["__codeletBootstrap__"]=JSON.parse('{"A":"A","B":"20261027-03-468a004","C":{"Abril Fatface":"YACgEZbkUVE,0","Albert Sans":"YAHO2HRfeh4,0","Alfa Slab One":"YACgEYS9sJU,0","Allura":"YACgEap1YR0,0","Anton":"YACgEcYqQ-A,0","Archivo Black":"YACgEZulLoA,0","Archivo":"YAHO2-t-jNE,0","Arial":"YAGyDvJ_4Ts,0","Arvo":"YACgEf17hXM,0","Atkinson Hyperlegible":"YAFge7Z-F6s,0","Azeret Mono":"YAHO2EIdDP0,0","Baloo 2":"YAHO2IcQUcM,0","Bangers":"YAD5qTdjGKo,1","Barlow Condensed":"YAFdJljEuFc,0","Barlow Semi Condensed":"YAFdJu55qXI,0","Barlow":"YAFdJsyuOPM,1","Bebas Neue":"YACgESME5ew,0","Big Shoulders Display":"YAFdJs8L2aw,0","Bodoni Moda":"YAHO2C7VUJE,0","Bricolage Grotesque":"YAFyMcdwzpc,0","Cairo":"YAFdtXpDzlQ,0","Canva Sans":"YAFdJjTk5UU,1","Caprasimo":"YAHO2PYTkbo,0","Caveat":"YALBs2ploWQ,0","Cinzel":"YACgEeV8bIQ,0","Comic Neue":"YAHO2VMiyZo,0","Commissioner":"YAHO2RRI-KE,0","Cormorant Garamond":"YAFdJhX-538,0","Courier New":"YAGzXiGs0_8,0","Courier Prime":"YAD1aFjegN8,0","DM Mono":"YAHO2SGpw0w,0","DM Sans":"YAD1aU3sLnI,0","DM Serif Display":"YAD1aYG82rc,0","DynaPuff":"YAFyMRnxBDs,0","EB Garamond":"YAFdJtfMD6Y,0","Familjen Grotesk":"YAHO2ZriIzU,0","Figtree":"YAHO2b-mV7A,0","Forum":"YACgEcnnqB4,0","Fraunces":"YAFdJpU7Kkk,0","Fredoka":"YACgEZml080,0","Gabarito":"YAHO2cD3JmI,0","Geist Mono":"YAHO2XOe8v8,0","Geist":"YAHO2SfKS30,0","Gentium Book Plus":"YAHO2b-adyU,0","Georgia":"YAGzXkO0pEM,0","Gloock":"YAHO2WVhd0Q,0","Golos Text":"YAHO2QlqAQk,0","Hanken Grotesk":"YAHO2VB9G0I,0","Helvetica":"YAFcf7zkXN0,0","Host Grotesk":"YAHO2VztvdY,0","IBM Plex Mono":"YAFdJkmvhGI,0","IBM Plex Sans Arabic":"YAGVuEYCNg0,1","IBM Plex Sans":"YAFdJgT0SHI,0","Impact":"YAFcfnjI7Vk,0","Instrument Sans":"YAHO2bKyaSQ,0","Instrument Serif":"YAHFeOnZNEk,0","Inter":"YAFdJvSyp_k,3","Italiana":"YAHO2Toik_w,0","Jacques Francois":"YAHO2a5g66Q,0","JetBrains Mono":"YAFdJksXcAk,0","Josefin Sans":"YAFdJjvw9Ps,0","Jua":"YADK3-gZSDU,0","Kalam":"YAFdJrEg2ic,0","Karla":"YAHO2V2NSXM,0","Lato":"YAFdJuFCnaw,0","League Spartan":"YACgEcnJpjs,0","Lexend Mega":"YAD9UdrjgZw,0","Libre Baskerville":"YACgEUFdPdA,0","Libre Caslon Display":"YAHO2XhLmt0,0","Libre Caslon Text":"YAHO2USylHk,0","Libre Franklin":"YAFdJr3SNlU,1","Lobster":"YAD8SnSjSFI,0","Lora":"YACgEXvxf8Q,0","Manrope":"YAHO2b2feC4,0","Martian Mono":"YAHO2YhUMkk,0","Merriweather":"YACgEXvHxxs,0","Michroma":"YADK4IYX8vY,0","Montserrat":"YAFdtQi73Xs,0","Mooli":"YAHO2QudnvU,0","Noto Sans JP":"YAFdJiHXlcI,0","Noto Sans KR":"YAGsojZj-RQ,0","Noto Sans SC":"YAHO2hDCDFM,0","Nunito Sans":"YAFdtQJYB9w,1","Nunito":"YAFdJoNRMmU,1","Old Standard TT":"YAHO2lhtDcg,0","Oleo Script":"YACgEQQ14jI,0","Onest":"YAHO2kaArOY,0","Open Sans":"YAFdJt8dAY0,1","Orbitron":"YAHO2tXXH_o,0","Oswald":"YACgEQY10lw,0","Outfit":"YAHO2nVlg14,0","PT Serif":"YACgEcU7Qg4,0","Pacifico":"YADLjORQ1u4,0","Parisienne":"YACgERSYqTw,0","Patua One":"YAHO2qRZWLE,0","Playfair Display":"YAFdJhem5V8,1","Plus Jakarta Sans":"YAHO2gdhi18,0","Poppins":"YAFdJjbTu24,1","Press Start 2P":"YAFyGr-8pmQ,0","Prompt":"YAFdJmA6sOY,0","Public Sans":"YAFdJj8NdaU,1","Quicksand":"YAFdJpYtCxE,1","Raleway":"YAFdJhmxbVQ,1","Red Hat Display":"YAD1bzs0p0Y,0","Red Hat Text":"YAHO21kkNWg,0","Roboto Mono":"YAFdJkvp3-k,0","Roboto Slab":"YAFdJswIKAg,0","Rockwell":"YAFcfyVZnN0,0","Rubik":"YAFdJsMWVVc,0","Rye":"YACgEdQP21k,0","STIX Two Text":"YAHO2joycuk,0","Sarabun":"YAFdJssSnME,0","Schibsted Grotesk":"YAHO2sWydRk,0","Segoe UI":"YAHNdRD1Klw,0","Shippori Mincho":"YAGWZNRJkO8,0","Sniglet":"YACgEUJSCy8,0","Sora":"YAHO2rDTR1E,0","Source Sans 3":"YAG4lO1Mj10,0","Space Grotesk":"YAHO2sjPCSM,0","Space Mono":"YADW1-vpsoc,0","Spectral":"YAHO2rVUHIM,0","Syne":"YAHML9oLRPc,0","Tahoma":"YAFcfipOFgg,0","Times New Roman":"YAGzXW3gftg,0","Trebuchet MS":"YAFcfrglpVA,0","Ubuntu":"YACgERDU--Q,0","Unbounded":"YAHO2rkdmWY,0","Varela Round":"YALBs2IK6rw,0","Verdana":"YAGzXTctYtQ,0","Work Sans":"YAGXhLOKv44,0","Yellowtail":"YACgEYG4kG4,0","roboto":"YACgEev4gKc,0"}}');</script><script src="/_sdk/c1d5809772e68e4a.telemetry_sdk.js" integrity="sha512-oT7iKGjGhNaUNlHFPgJWNnT7dfWWN1RmmFLrFQIu75q8o0FMyvJn4ub5kaVy0ohrSaHM/YBCXGqFs2ulcRJGxA=="></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pakan Héjo — Potensi lokal, dampak berkelanjutan</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&amp;display=swap" rel="stylesheet">
+  <style>
+    :root { --forest:#103b22; --leaf:#549b29; --cream:#f6f3e6; --sand:#e9e0ca; --ink:#183624; --blue:#1479aa; }
+    html { scroll-behavior:smooth; }
+    body { font-family:'DM Sans',sans-serif; color:var(--ink); }
+    h1,h2,h3 { font-family:'Fraunces',serif; }
+    * { box-sizing:border-box; }
+    .site-shell { width:100%; overflow:hidden; }
+    .nav-link { transition:color .2s; }
+    .nav-link:hover { color:var(--leaf); }
+    .action { transition:transform .25s,background .25s,box-shadow .25s; }
+    .action:hover { transform:translateY(-3px); box-shadow:0 12px 28px #103b2226; }
+    .photo { background:#d9e5d0; }
+    .photo img { transition:transform .7s; }
+    .photo:hover img { transform:scale(1.055); }
+    .reveal { animation:rise .75s both; }
+    .reveal:nth-child(2) { animation-delay:.12s; }
+    .reveal:nth-child(3) { animation-delay:.23s; }
+    @keyframes rise { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+    :focus-visible { outline:3px solid #1479aa; outline-offset:4px; }
+    .hero-grain { background-image:radial-gradient(#3e74451c 1px,transparent 1px); background-size:20px 20px; }
+    .dialog-backdrop { background:#102519a8; }
+    @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } *,*:before,*:after { animation-duration:.01ms!important; transition-duration:.01ms!important; } }
+  </style>
+  <script src="https://cdn.tailwindcss.com/3.4.17" type="text/javascript"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.577.0/dist/umd/lucide.min.js" type="text/javascript"></script>
+  <script src="/_sdk/2907482ed964d57b.data_sdk.js" type="text/javascript" integrity="sha512-GUvwysl7ZJ/sNlcDtv8sWKy0vKowoN/I+aynrBT6Rb9lfzvsjfkM9d1utuBD0yG/L4GoXXXzzxk194bhB49qfw=="></script>
+  <script src="/_sdk/99381a008bf4ded9.editing_sdk.js" type="text/javascript" integrity="sha512-NvTAEdGONFzzmif5xSbprCVebe1rHI7Zrl4au96Bg+X7UZKQ3bWmMYlZ9YYExrZDsws+jcNdKZio0uM/6JZSRA=="></script>
+  <script src="/_sdk/c774963abc6f03de.resizing_sdk.js" type="text/javascript" integrity="sha512-fVA81vJnL46vGKioyJJbk3XaJjdaKaDnDMTShVQ1S1kBQM4xcUhuy93NTuRYEspgyUVmkpVo4DcQ4X0vP2kYcQ=="></script>
+ </head>
+ <body data-template-id="__page-root" class="w-full" style="background: rgb(246, 243, 230);">
+  <div class="site-shell w-full">
+   <header data-template-id="site-header" class="canva-header w-full border-b border-[#dce5d4] sticky top-0 z-40 bg-[#f6f3e6]/95 backdrop-blur-md" style="background: rgb(246, 243, 230);">
+    <div class="max-w-7xl mx-auto px-5 md:px-10 h-20 flex items-center justify-between gap-6"><a href="#beranda" class="flex items-center gap-3 shrink-0" aria-label="Pakan Héjo, kembali ke beranda"> <span class="h-14 w-14 rounded-xl overflow-hidden bg-[#f6f3e6] inline-block relative shrink-0" aria-hidden="true"><img data-template-id="brand-logo" class="canva-image absolute left-[-27.5%] top-0 w-[155%] max-w-none h-auto mix-blend-multiply" loading="lazy" src="canva://MAHZLEQpqoU/1" alt="Logo Pakan Héjo dengan daun eceng gondok, ikan, dan butiran pelet"></span> <span data-template-id="brand-name" class="canva-text font-bold tracking-tight leading-tight" style="color: rgb(16, 59, 34); font-weight: 700; font-style: normal; font-size: 18px;">PAKAN HÉJO</span> </a>
+     <nav class="hidden md:flex items-center gap-8" aria-label="Navigasi utama"><a data-template-id="nav-story" class="canva-link nav-link font-semibold" href="#cerita" style="color: rgb(24, 54, 36); font-weight: 400; font-style: normal; font-size: 16px;">Cerita kami</a> <a data-template-id="nav-products" class="canva-link nav-link font-semibold" href="#produk" style="color: rgb(24, 54, 36); font-weight: 400; font-style: normal; font-size: 16px;">Produk</a> <a data-template-id="nav-benefits" class="canva-link nav-link font-semibold" href="#manfaat" style="color: rgb(24, 54, 36); font-weight: 400; font-style: normal; font-size: 16px;">Manfaat</a> <a data-template-id="nav-location" class="canva-link nav-link font-semibold" href="#lokasi" style="color: rgb(24, 54, 36); font-weight: 400; font-style: normal; font-size: 16px;">Tempat produksi</a>
+     </nav><a data-template-id="header-cta" href="#produk" class="canva-button action hidden md:inline-flex items-center gap-2 rounded-full px-5 py-3 font-semibold" style="background: rgb(16, 59, 34); color: rgb(255, 255, 255);">Lihat produk <i data-lucide="arrow-up-right" class="w-4 h-4"></i></a> <button id="menu-toggle" class="md:hidden p-2 rounded-lg" type="button" aria-label="Buka navigasi" aria-expanded="false" aria-controls="mobile-nav"><i data-lucide="menu" class="w-6 h-6"></i></button>
+    </div>
+    <nav id="mobile-nav" class="hidden md:hidden px-5 pb-5 flex flex-col gap-4" aria-label="Navigasi seluler"><a href="#cerita">Cerita kami</a><a href="#produk">Produk</a><a href="#manfaat">Manfaat</a><a href="#lokasi">Tempat produksi</a>
     </nav>
-
-    <!-- Hero Section -->
-    <header>
-        <!-- Pastikan file logo di GitHub bernama 'logo.jpg' atau 'logo.png' -->
-        <img src="logo.jpg" alt="Logo Pakan Hejo" class="hero-logo" onerror="this.src='https://via.placeholder.com/150?text=Logo+Pakan+Hejo'">
-        <h1>PAKAN HÉJO</h1>
-        <p class="tagline">Potensi lokal, dampak berkelanjutan.</p>
-        <div style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: center;">
-            <a href="#beli" class="btn">Pesan Sekarang</a>
-            <a href="#latar-belakang" class="btn btn-outline">Pelajari Lebih Lanjut</a>
+   </header>
+   <main>
+    <section id="beranda" data-template-id="hero-section" class="canva-section hero-grain relative py-16 md:py-24" style="background: rgb(246, 243, 230);">
+     <div class="max-w-7xl mx-auto px-5 md:px-10 grid lg:grid-cols-[1.05fr_.95fr] gap-12 lg:gap-16 items-center">
+      <div class="reveal">
+       <p data-template-id="hero-eyebrow" class="canva-text uppercase tracking-[.23em] font-bold mb-6" style="color: rgb(57, 126, 56); font-weight: 700; font-style: normal; font-size: 12px;">POTENSI LOKAL · DAMPAK BERKELANJUTAN</p>
+       <h1 data-template-id="hero-title" class="canva-text font-semibold leading-[1.06] tracking-tight max-w-2xl" style="color: rgb(16, 59, 34); font-weight: 600; font-style: normal; font-size: 64px;">Dari perairan, untuk masa depan budidaya.</h1>
+       <p data-template-id="hero-description" class="canva-text mt-7 max-w-xl leading-relaxed" style="color: rgb(64, 87, 68); font-weight: 400; font-style: normal; font-size: 18px;">Pakan Héjo mengeksplorasi potensi eceng gondok sebagai bahan olahan dalam pengembangan produk pakan ikan dan kebutuhan budidaya.</p>
+       <div class="mt-9 flex flex-wrap gap-3"><a data-template-id="hero-cta" href="#produk" class="canva-button action inline-flex items-center gap-3 rounded-full px-7 py-4 font-bold" style="background: rgb(16, 59, 34); color: rgb(255, 255, 255);">Jelajahi produk <i data-lucide="arrow-right" class="w-5 h-5"></i></a> <a data-template-id="hero-secondary" href="#cerita" class="canva-link action inline-flex items-center gap-2 rounded-full px-7 py-4 border border-[#2c573b] font-semibold" style="color: rgb(16, 59, 34); font-weight: 400; font-style: normal; font-size: 16px;">Kenali cerita kami</a>
+       </div>
+      </div>
+      <div class="relative reveal">
+       <div class="absolute -inset-5 rounded-[3rem] border border-[#84ad793f] rotate-3 pointer-events-none"></div>
+       <div class="photo relative rounded-[2.4rem] overflow-hidden aspect-[4/4.2] shadow-[0_28px_75px_#173c2530]"><img data-template-id="hero-photo" class="canva-image w-full h-full object-cover" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Eichhornia_crassipes.jpg" alt="Tanaman eceng gondok di perairan">
+        <div class="absolute bottom-5 left-5 right-5 rounded-2xl bg-[#f6f3e6]/95 backdrop-blur-sm p-4 flex items-center gap-3"><span class="w-10 h-10 rounded-full bg-[#dce9ce] flex items-center justify-center shrink-0"><i data-lucide="leaf" class="w-5 h-5 text-[#287444]"></i></span> <span data-template-id="hero-photo-caption" class="canva-text font-semibold" style="color: rgb(16, 59, 34); font-weight: 400; font-style: normal; font-size: 14px;">Terinspirasi oleh eceng gondok</span>
         </div>
-    </header>
-
-    <!-- Latar Belakang & Foto Eceng Gondok -->
-    <section id="latar-belakang">
-        <h2>Harmoni Alam & Inovasi</h2>
-        <div class="grid-container">
-            <div>
-                <!-- Menggunakan gambar eceng gondok estetik dari Unsplash sebagai ilustrasi web -->
-                <img src="https://images.unsplash.com/photo-1615963244664-8284dd8992ba?q=80&w=800&auto=format&fit=crop" alt="Tanaman Air Asri" class="image-rounded">
-            </div>
-            <div class="card" style="display: flex; flex-direction: column; justify-content: center;">
-                <h3>Merangkul Potensi Lokal</h3>
-                <p>Eceng gondok seringkali dianggap sebagai gulma perairan yang mengganggu, sementara ampas tahu menjadi limbah yang menimbulkan polusi bau. <b>Pakan Héjo</b> merangkul kedua hal ini.</p>
-                <p>Kami menyulap tantangan lingkungan di Jawa Barat menjadi produk bernilai tinggi. Pendekatan zero-waste kami mendukung kemajuan budidaya perikanan dengan tetap menjaga kelestarian perairan.</p>
-            </div>
-        </div>
+       </div>
+      </div>
+     </div>
     </section>
-
-    <!-- Makna Logo Section -->
-    <section id="makna-logo">
-        <h2>Makna Identitas Kami</h2>
-        <div class="grid-container">
-            <div class="card">
-                <ul class="logo-meaning">
-                    <li>
-                        <h4>🌿 Daun & Bunga Eceng Gondok</h4>
-                        <p>Mengubah gulma yang tak berguna menjadi sumber daya pakan bernilai tinggi.</p>
-                    </li>
-                    <li>
-                        <h4>🐟 Siluet Ikan & Arus Air</h4>
-                        <p>Target nutrisi perikanan dan komitmen menjaga habitat perairan yang bersih.</p>
-                    </li>
-                    <li>
-                        <h4>🟤 Butiran Cokelat</h4>
-                        <p>Simbol produk akhir berupa pelet ikan padat nutrisi dari bahan alami.</p>
-                    </li>
-                    <li>
-                        <h4>✨ Inisial 'H' (Héjo)</h4>
-                        <p>Gabungan elemen membentuk inisial yang mempertegas visi berkelanjutan kami.</p>
-                    </li>
-                </ul>
-            </div>
-            <div style="text-align: center;">
-                <!-- Menampilkan logo lagi dengan ukuran lebih besar -->
-                <img src="logo.jpg" alt="Logo Pakan Hejo Detail" style="width: 100%; max-width: 350px; border-radius: 30px; box-shadow: 0 20px 40px rgba(0,0,0,0.08);" onerror="this.src='https://via.placeholder.com/350?text=Logo+Detail'">
-            </div>
-        </div>
+    <section id="cerita" class="py-20 md:py-28">
+     <div class="max-w-7xl mx-auto px-5 md:px-10 grid lg:grid-cols-2 gap-12 lg:gap-24 items-start">
+      <div>
+       <p data-template-id="story-eyebrow" class="canva-text uppercase tracking-[.22em] font-bold mb-5" style="color: rgb(57, 126, 56); font-weight: 400; font-style: normal; font-size: 12px;">CERITA DI BALIK HÉJO</p>
+       <h2 data-template-id="story-title" class="canva-text leading-tight max-w-lg" style="color: rgb(16, 59, 34); font-weight: 600; font-style: normal; font-size: 46px;">Melihat potensi baru pada tumbuhan perairan.</h2>
+      </div>
+      <div class="lg:pt-9">
+       <p data-template-id="story-paragraph-one" class="canva-text leading-relaxed mb-5" style="color: rgb(64, 87, 68); font-weight: 400; font-style: normal; font-size: 16px;">Eceng gondok dikenal sebagai tumbuhan yang tumbuh cepat di perairan. Pakan Héjo berangkat dari gagasan untuk mengolah potensi lokal ini menjadi bahan yang lebih bermanfaat bagi ekosistem budidaya ikan.</p>
+       <p data-template-id="story-paragraph-two" class="canva-text leading-relaxed" style="color: rgb(64, 87, 68); font-weight: 400; font-style: normal; font-size: 16px;">Identitas kami menyatukan daun dan bunga eceng gondok, siluet ikan, serta butiran pelet: pengingat bahwa inovasi dapat dimulai dari apa yang ada di sekitar kita.</p>
+       <div class="mt-9 border-l-4 border-[#549b29] pl-6">
+        <p data-template-id="story-quote" class="canva-text font-semibold leading-relaxed" style="color: rgb(16, 59, 34); font-weight: 400; font-style: normal; font-size: 22px;">Potensi lokal, dampak berkelanjutan.</p>
+       </div>
+      </div>
+     </div>
     </section>
-
-    <!-- Keunggulan & Produk -->
-    <section id="produk">
-        <h2>Kenapa Pakan Héjo?</h2>
-        <div class="grid-container">
-            <div class="card">
-                <h3>💧 Menjaga Kualitas Air</h3>
-                <p>Dicetak dengan kepadatan presisi (water stability baik) sehingga tidak mudah hancur, meminimalisir endapan amonia di kolam Anda.</p>
-            </div>
-            <div class="card">
-                <h3>📈 Nutrisi Optimal</h3>
-                <p>Kombinasi eceng gondok yang kaya serat dan ampas tahu yang tinggi protein nabati, mempercepat pertumbuhan ikan secara sehat.</p>
-            </div>
-            <div class="card">
-                <h3>💰 Harga Terjangkau</h3>
-                <p>Memanfaatkan bahan baku alternatif lokal dari Cililin, menekan biaya produksi demi harga terbaik bagi peternak ikan.</p>
-            </div>
-        </div>
+    <section id="produk" data-template-id="products-section" class="canva-section py-20 md:py-28" style="background: rgb(233, 224, 202);">
+     <div class="max-w-7xl mx-auto px-5 md:px-10">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-11">
+       <div>
+        <p data-template-id="products-eyebrow" class="canva-text uppercase tracking-[.22em] font-bold mb-4" style="color: rgb(57, 126, 56); font-weight: 400; font-style: normal; font-size: 12px;">RANGKAIAN PRODUK</p>
+        <h2 data-template-id="products-title" class="canva-text leading-tight" style="color: rgb(16, 59, 34); font-weight: 600; font-style: normal; font-size: 46px;">Pilihan untuk budidaya.</h2>
+       </div>
+       <p data-template-id="products-intro" class="canva-text max-w-md leading-relaxed" style="color: rgb(64, 87, 68); font-weight: 400; font-style: normal; font-size: 16px;">Kenali bentuk produk Pakan Héjo. Hubungi pengelola untuk rincian komposisi, ketersediaan, dan penggunaan yang sesuai.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-5">
+       <article data-template-id="product-one-card" class="canva-card rounded-[1.75rem] p-7 flex flex-col min-h-[350px] reveal" style="background: rgb(246, 243, 230);"><span class="w-14 h-14 rounded-2xl bg-[#e5edda] flex items-center justify-center mb-12"><i data-lucide="fish" class="w-7 h-7 text-[#136b8e]"></i></span>
+        <p data-template-id="product-one-number" class="canva-text mb-3 font-bold" style="color: rgb(57, 126, 56); font-weight: 400; font-style: normal; font-size: 12px;">01 / PAKAN</p>
+        <h3 data-template-id="product-one-title" class="canva-text leading-tight mb-4" style="color: rgb(16, 59, 34); font-weight: 600; font-style: normal; font-size: 28px;">Pakan ikan pelet</h3>
+        <p data-template-id="product-one-description" class="canva-text leading-relaxed" style="color: rgb(64, 87, 68); font-weight: 400; font-style: normal; font-size: 16px;">Produk pelet untuk kebutuhan pakan ikan. Spesifikasi dan panduan pemberian pakan tersedia melalui informasi resmi produk.</p>
+       </article>
+       <article data-template-id="product-two-card" class="canva-card rounded-[1.75rem] p-7 flex flex-col min-h-[350px] reveal" style="background: rgb(246, 243, 230);"><span class="w-14 h-14 rounded-2xl bg-[#e5edda] flex items-center justify-center mb-12"><i data-lucide="sprout" class="w-7 h-7 text-[#397e38]"></i></span>
+        <p data-template-id="product-two-number" class="canva-text mb-3 font-bold" style="color: rgb(57, 126, 56); font-weight: 400; font-style: normal; font-size: 12px;">02 / BAHAN OLAHAN</p>
+        <h3 data-template-id="product-two-title" class="canva-text leading-tight mb-4" style="color: rgb(16, 59, 34); font-weight: 600; font-style: normal; font-size: 28px;">Olahan eceng gondok</h3>
+        <p data-template-id="product-two-description" class="canva-text leading-relaxed" style="color: rgb(64, 87, 68); font-weight: 400; font-style: normal; font-size: 16px;">Bahan olahan berbasis eceng gondok sebagai bagian dari eksplorasi pemanfaatan sumber daya perairan lokal.</p>
+       </article>
+       <article data-template-id="product-three-card" class="canva-card rounded-[1.75rem] p-7 flex flex-col min-h-[350px] reveal" style="background: rgb(246, 243, 230);"><span class="w-14 h-14 rounded-2xl bg-[#e5edda] flex items-center justify-center mb-12"><i data-lucide="package" class="w-7 h-7 text-[#397e38]"></i></span>
+        <p data-template-id="product-three-number" class="canva-text mb-3 font-bold" style="color: rgb(57, 126, 56); font-weight: 400; font-style: normal; font-size: 12px;">03 / PAKET</p>
+        <h3 data-template-id="product-three-title" class="canva-text leading-tight mb-4" style="color: rgb(16, 59, 34); font-weight: 600; font-style: normal; font-size: 28px;">Paket produk budidaya</h3>
+        <p data-template-id="product-three-description" class="canva-text leading-relaxed" style="color: rgb(64, 87, 68); font-weight: 400; font-style: normal; font-size: 16px;">Pilihan paket untuk kebutuhan budidaya. Isi paket, harga, dan ketersediaan dapat dikonfirmasi melalui kanal pembelian resmi.</p>
+       </article>
+      </div>
+      <p data-template-id="product-note" class="canva-text mt-6 leading-relaxed" style="color: rgb(89, 103, 80); font-weight: 400; font-style: normal; font-size: 13px;">Catatan: Detail teknis, harga, dan ketersediaan belum dicantumkan; perbarui informasi ini setelah dikonfirmasi oleh Pakan Héjo.</p>
+     </div>
     </section>
-
-    <!-- Pemesanan & Kontak -->
-    <section id="beli">
-        <div class="card" style="text-align: center; max-width: 700px; margin: 0 auto; background: rgba(255,255,255,0.8);">
-            <h2 style="margin-bottom: 20px; font-size: 2rem;">Mulai Beralih ke Pakan Héjo</h2>
-            <p style="margin-bottom: 30px; color: var(--text-light);">Diproduksi dengan bangga di Cililin, Jawa Barat. Siap memenuhi kebutuhan eceran maupun partai besar.</p>
-            
-            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
-                <!-- Ganti nomor WhatsApp di bawah ini -->
-                <a href="https://wa.me/6281234567890" target="_blank" class="btn" style="background-color: #25D366; display: flex; align-items: center; gap: 10px;">
-                    🛒 Pesan via WhatsApp
-                </a>
-                
-                <!-- Tombol interaktif menggunakan JavaScript sederhana karena belum ada link -->
-                <button onclick="alert('Toko Online di Shopee/Tokopedia sedang dalam tahap persiapan. Silakan pesan melalui WhatsApp untuk saat ini!')" class="btn" style="background-color: var(--water-blue);">
-                    🛍️ Toko Online (Segera)
-                </button>
-            </div>
+    <section id="manfaat" class="py-20 md:py-28">
+     <div class="max-w-7xl mx-auto px-5 md:px-10 grid lg:grid-cols-[.9fr_1.1fr] gap-12 items-center">
+      <div>
+       <p data-template-id="benefits-eyebrow" class="canva-text uppercase tracking-[.22em] font-bold mb-5" style="color: rgb(57, 126, 56); font-weight: 400; font-style: normal; font-size: 12px;">KENAPA PAKAN HÉJO</p>
+       <h2 data-template-id="benefits-title" class="canva-text leading-tight mb-6" style="color: rgb(16, 59, 34); font-weight: 600; font-style: normal; font-size: 46px;">Berangkat dari alam. Dibuat dengan tujuan.</h2>
+       <p data-template-id="benefits-description" class="canva-text leading-relaxed" style="color: rgb(64, 87, 68); font-weight: 400; font-style: normal; font-size: 16px;">Pendekatan Pakan Héjo menempatkan pemanfaatan bahan lokal dan kebutuhan pembudidaya dalam satu percakapan. Manfaat spesifik produk bergantung pada komposisi dan cara penggunaannya.</p>
+      </div>
+      <div class="space-y-4">
+       <div data-template-id="benefit-one-card" class="canva-card rounded-2xl p-6 flex gap-5" style="background: rgb(238, 241, 231);">
+        <span class="text-3xl text-[#549b29]">01</span>
+        <div>
+         <h3 data-template-id="benefit-one-title" class="canva-text mb-2" style="color: rgb(16, 59, 34); font-weight: 600; font-style: normal; font-size: 23px;">Memanfaatkan potensi lokal</h3>
+         <p data-template-id="benefit-one-text" class="canva-text leading-relaxed" style="color: rgb(64, 87, 68); font-weight: 400; font-style: normal; font-size: 16px;">Mengangkat eceng gondok sebagai bahan yang dapat diolah dan dikembangkan lebih lanjut.</p>
         </div>
+       </div>
+       <div data-template-id="benefit-two-card" class="canva-card rounded-2xl p-6 flex gap-5" style="background: rgb(238, 241, 231);">
+        <span class="text-3xl text-[#549b29]">02</span>
+        <div>
+         <h3 data-template-id="benefit-two-title" class="canva-text mb-2" style="color: rgb(16, 59, 34); font-weight: 600; font-style: normal; font-size: 23px;">Relevan untuk budidaya</h3>
+         <p data-template-id="benefit-two-text" class="canva-text leading-relaxed" style="color: rgb(64, 87, 68); font-weight: 400; font-style: normal; font-size: 16px;">Menghadirkan pilihan produk yang berfokus pada kebutuhan kegiatan budidaya ikan.</p>
+        </div>
+       </div>
+       <div data-template-id="benefit-three-card" class="canva-card rounded-2xl p-6 flex gap-5" style="background: rgb(238, 241, 231);">
+        <span class="text-3xl text-[#549b29]">03</span>
+        <div>
+         <h3 data-template-id="benefit-three-title" class="canva-text mb-2" style="color: rgb(16, 59, 34); font-weight: 600; font-style: normal; font-size: 23px;">Semangat berkelanjutan</h3>
+         <p data-template-id="benefit-three-text" class="canva-text leading-relaxed" style="color: rgb(64, 87, 68); font-weight: 400; font-style: normal; font-size: 16px;">Mendorong cara pandang yang lebih kreatif terhadap sumber daya di lingkungan sekitar.</p>
+        </div>
+       </div>
+      </div>
+     </div>
     </section>
+    <section data-template-id="gallery-section" class="canva-section py-20 md:py-28" style="background: rgb(231, 237, 223);">
+     <div class="max-w-7xl mx-auto px-5 md:px-10">
+      <p data-template-id="gallery-eyebrow" class="canva-text uppercase tracking-[.22em] font-bold mb-4" style="color: rgb(57, 126, 56); font-weight: 400; font-style: normal; font-size: 12px;">INSPIRASI DARI PERAIRAN</p>
+      <h2 data-template-id="gallery-title" class="canva-text leading-tight mb-9" style="color: rgb(16, 59, 34); font-weight: 600; font-style: normal; font-size: 46px;">Dekat dengan sumber inspirasinya.</h2>
+      <div class="grid md:grid-cols-2 gap-5">
+       <figure class="photo rounded-[1.75rem] overflow-hidden">
+        <img data-template-id="gallery-photo-one" class="canva-image w-full h-72 md:h-[420px] object-cover" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Water_hyacinth.jpg" alt="Eceng gondok tumbuh di permukaan air">
+        <figcaption data-template-id="gallery-caption-one" class="canva-text px-5 py-4 font-medium" style="color: rgb(16, 59, 34); font-weight: 400; font-style: normal; font-size: 16px;">Eceng gondok dan lanskap perairan</figcaption>
+       </figure>
+       <figure class="photo rounded-[1.75rem] overflow-hidden">
+        <img data-template-id="gallery-photo-two" class="canva-image w-full h-72 md:h-[420px] object-cover" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Eichhornia_crassipes_1.jpg" alt="Bunga dan daun eceng gondok">
+        <figcaption data-template-id="gallery-caption-two" class="canva-text px-5 py-4 font-medium" style="color: rgb(16, 59, 34); font-weight: 400; font-style: normal; font-size: 16px;">Bentuk organik yang menginspirasi identitas Héjo</figcaption>
+       </figure>
+      </div>
+     </div>
+    </section>
+    <section id="lokasi" class="py-20 md:py-28">
+     <div class="max-w-7xl mx-auto px-5 md:px-10 grid lg:grid-cols-2 gap-12 items-center">
+      <div>
+       <p data-template-id="location-eyebrow" class="canva-text uppercase tracking-[.22em] font-bold mb-5" style="color: rgb(57, 126, 56); font-weight: 400; font-style: normal; font-size: 12px;">TEMPAT PRODUKSI</p>
+       <h2 data-template-id="location-title" class="canva-text leading-tight mb-6" style="color: rgb(16, 59, 34); font-weight: 600; font-style: normal; font-size: 46px;">Dibuat dengan perhatian pada asalnya.</h2>
+       <p data-template-id="location-description" class="canva-text leading-relaxed mb-8" style="color: rgb(64, 87, 68); font-weight: 400; font-style: normal; font-size: 16px;">Informasi alamat tempat produksi belum tersedia. Ruang ini disiapkan agar lokasi resmi dapat ditambahkan tanpa menampilkan alamat yang belum terverifikasi.</p>
+       <div data-template-id="location-panel" class="canva-panel rounded-2xl p-6 border border-[#cbd8c4]" style="background: rgb(240, 242, 232);">
+        <p data-template-id="location-label" class="canva-text uppercase tracking-widest font-bold mb-3" style="color: rgb(57, 126, 56); font-weight: 400; font-style: normal; font-size: 12px;">ALAMAT PRODUKSI</p>
+        <p data-template-id="location-placeholder" class="canva-text font-semibold" style="color: rgb(16, 59, 34); font-weight: 400; font-style: normal; font-size: 16px;">[Isi alamat tempat produksi resmi di sini]</p>
+       </div>
+      </div>
+      <div class="rounded-[2rem] bg-[#dce9d3] min-h-[320px] md:min-h-[420px] p-9 md:p-14 flex flex-col justify-between relative overflow-hidden"><i data-lucide="leaf" class="absolute -right-12 -bottom-16 w-80 h-80 text-[#9abd8c] opacity-50" stroke-width="1"></i> <span class="relative w-16 h-16 rounded-full bg-[#f6f3e6] flex items-center justify-center"><i data-lucide="map-pin" class="w-8 h-8 text-[#245b36]"></i></span>
+       <p data-template-id="location-card-text" class="canva-text relative max-w-sm leading-tight font-semibold" style="color: rgb(16, 59, 34); font-weight: 400; font-style: normal; font-size: 30px;">Dari potensi setempat, menuju peluang yang lebih luas.</p>
+      </div>
+     </div>
+    </section>
+    <section id="beli" data-template-id="purchase-section" class="canva-section py-20 md:py-24" style="background: rgb(16, 59, 34);">
+     <div class="max-w-7xl mx-auto px-5 md:px-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+      <div>
+       <p data-template-id="purchase-eyebrow" class="canva-text uppercase tracking-[.22em] font-bold mb-4" style="color: rgb(184, 215, 150); font-weight: 400; font-style: normal; font-size: 12px;">TERTARIK DENGAN PAKAN HÉJO?</p>
+       <h2 data-template-id="purchase-title" class="canva-text leading-tight mb-4" style="color: rgb(255, 255, 255); font-weight: 600; font-style: normal; font-size: 46px;">Mari mulai dari pilihan yang tepat.</h2>
+       <p data-template-id="purchase-description" class="canva-text max-w-xl leading-relaxed" style="color: rgb(214, 231, 216); font-weight: 400; font-style: normal; font-size: 16px;">Tautan pembelian resmi belum tersedia. Tambahkan tautan toko atau kontak penjualan yang telah dikonfirmasi sebelum menerima pesanan.</p>
+      </div><button id="purchase-button" data-template-id="purchase-button" type="button" class="canva-button action shrink-0 rounded-full px-8 py-4 font-bold flex items-center gap-3" style="background: rgb(229, 237, 218); color: rgb(16, 59, 34);">Info pembelian <i data-lucide="arrow-up-right" class="w-5 h-5"></i></button>
+     </div>
+    </section>
+   </main>
+   <footer data-template-id="site-footer" class="canva-footer py-10" style="background: rgb(11, 43, 26);">
+    <div class="max-w-7xl mx-auto px-5 md:px-10 flex flex-col md:flex-row justify-between gap-6 items-start md:items-center">
+     <p data-template-id="footer-brand" class="canva-text font-bold" style="color: rgb(255, 255, 255); font-weight: 400; font-style: normal; font-size: 20px;">PAKAN HÉJO</p>
+     <p data-template-id="footer-tagline" class="canva-text" style="color: rgb(213, 231, 212); font-weight: 400; font-style: normal; font-size: 16px;">Potensi lokal, dampak berkelanjutan.</p><a data-template-id="footer-top" class="canva-link font-semibold" href="#beranda" style="color: rgb(255, 255, 255); font-weight: 400; font-style: normal; font-size: 16px;">Kembali ke atas ↑</a>
+    </div>
+   </footer>
+  </div>
+  <div id="purchase-dialog" class="dialog-backdrop fixed inset-0 z-50 hidden items-center justify-center p-5" role="dialog" aria-modal="true" aria-labelledby="dialog-title">
+   <div data-template-id="dialog-panel" class="canva-panel w-full max-w-md rounded-[1.75rem] p-8 shadow-2xl" style="background: rgb(246, 243, 230);">
+    <div class="flex justify-between gap-4 items-start mb-6">
+     <span class="w-12 h-12 rounded-full bg-[#e6efd9] flex items-center justify-center"><i data-lucide="link" class="w-5 h-5 text-[#27643a]"></i></span><button id="dialog-close" type="button" class="p-2 rounded-lg" aria-label="Tutup informasi pembelian"><i data-lucide="x" class="w-5 h-5"></i></button>
+    </div>
+    <h2 id="dialog-title" data-template-id="dialog-title" class="canva-text mb-4" style="color: rgb(16, 59, 34); font-weight: 600; font-style: normal; font-size: 28px;">Tautan pembelian belum tersedia</h2>
+    <p data-template-id="dialog-description" class="canva-text leading-relaxed mb-7" style="color: rgb(64, 87, 68); font-weight: 400; font-style: normal; font-size: 16px;">Belum ada tautan toko atau kontak penjualan resmi yang diberikan. Perbarui bagian pembelian dengan tautan yang telah dikonfirmasi agar pengunjung dapat memesan produk.</p><button id="dialog-done" data-template-id="dialog-done" type="button" class="canva-button w-full rounded-full py-3 font-bold" style="background: rgb(16, 59, 34); color: rgb(255, 255, 255); font-weight: 400; font-style: normal; font-size: 16px;">Mengerti</button>
+   </div>
+  </div>
+  <script>
+  const menuToggle = document.getElementById('menu-toggle');
+  const mobileNav = document.getElementById('mobile-nav');
+  menuToggle.addEventListener('click', () => {
+    const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
+    menuToggle.setAttribute('aria-expanded', String(!expanded));
+    mobileNav.classList.toggle('hidden', expanded);
+  });
+  mobileNav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+    mobileNav.classList.add('hidden');
+    menuToggle.setAttribute('aria-expanded', 'false');
+  }));
 
-    <!-- Footer -->
-    <footer>
-        <h3 style="margin-top: 0;">PAKAN HÉJO</h3>
-        <p>Potensi Lokal, Dampak Berkelanjutan.</p>
-        <p style="opacity: 0.6; font-size: 0.85rem; margin-top: 20px;">&copy; 2026 Pakan Héjo - Aruna Kriya. Hak Cipta Dilindungi.</p>
-    </footer>
-
-</body>
-</html>
+  const dialog = document.getElementById('purchase-dialog');
+  const purchaseButton = document.getElementById('purchase-button');
+  let previousFocus;
+  function closeDialog() {
+    dialog.classList.add('hidden');
+    dialog.classList.remove('flex');
+    previousFocus?.focus();
+  }
+  purchaseButton.addEventListener('click', () => {
+    previousFocus = document.activeElement;
+    dialog.classList.remove('hidden');
+    dialog.classList.add('flex');
+    document.getElementById('dialog-close').focus();
+  });
+  document.getElementById('dialog-close').addEventListener('click', closeDialog);
+  document.getElementById('dialog-done').addEventListener('click', closeDialog);
+  dialog.addEventListener('click', event => { if (event.target === dialog) closeDialog(); });
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && !dialog.classList.contains('hidden')) closeDialog();
+    if (event.key === 'Tab' && !dialog.classList.contains('hidden')) {
+      const controls = [document.getElementById('dialog-close'), document.getElementById('dialog-done')];
+      const index = controls.indexOf(document.activeElement);
+      if (event.shiftKey && index === 0) { event.preventDefault(); controls[1].focus(); }
+      else if (!event.shiftKey && index === 1) { event.preventDefault(); controls[0].focus(); }
+    }
+  });
+  lucide.createIcons();
+</script>
+ 
+</body></html>
